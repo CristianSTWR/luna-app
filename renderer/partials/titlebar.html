@@ -1,0 +1,83 @@
+<div class="titlebar">
+    <div class="titlebar-left">
+      <img width="28" class="logo" height="auto" src="./assets/logo_luna.png" alt="">
+    </div>
+  
+    <div class="titlebar-center"></div>
+  
+    <div class="titlebar-right">
+      <button class="tb-btn" id="min">—</button>
+      <button class="tb-btn" id="max">▢</button>
+      <button class="tb-btn close" id="close">✕</button>
+    </div>
+  </div>
+
+  
+  <style>
+    @font-face {
+    font-family: "Gabarito";
+    src: url("./assets/fonts/Gabarito-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900; /* rango variable */
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .logo {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+    .titlebar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:5px 8px 0 8px;
+  -webkit-app-region: drag; /* ✅ zona que arrastra */
+  user-select:none;
+}
+
+.titlebar-left{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  min-width:260px;
+  
+}
+
+
+.app-title{
+    color: black;
+  font:600 14px/1 system-ui,Segoe UI;
+  opacity:.95;
+}
+
+.titlebar-right{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  -webkit-app-region: no-drag; /* ✅ botones clickeables */
+}
+
+.tb-btn{
+ 
+  
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  color:#9b9b9b;
+  cursor:pointer;
+  font-size: 12.5px;
+}
+
+.tb-btn:hover{ background:rgba(156, 156, 156, 0.13); }
+
+.tb-btn.close:hover{
+  background-color: rgb(275, 75,75);
+  color: white;
+}
+  </style>
+
+  <script>
+      document.getElementById("min").onclick = () => window.win.minimize();
+  document.getElementById("max").onclick = () => window.win.toggleMaximize();
+  document.getElementById("close").onclick = () => window.win.close();
+  </script>

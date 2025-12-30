@@ -1,0 +1,106 @@
+
+@font-face {
+  font-family: "Gabarito";
+  src: url("../assets/fonts/Gabarito-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900; /* rango variable */
+  font-style: normal;
+  font-display: swap;
+}
+
+    
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; min-height:100vh;  align-items:center; justify-content:center;
+
+      color:var(--txt);
+      font-family: "Gabarito", system-ui, -apple-system, Segoe UI, sans-serif;
+
+
+    }
+
+    .card{
+        width: 100%;
+        text-align: center;
+    
+    }
+
+    .card h1{
+      padding: 0;
+      margin: 0.7rem 0 0 0;
+      font-size: 1.7rem;
+    }
+
+     /* Inputs */
+  .input {
+    position: relative;
+
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem !important;
+    outline: none;
+    transition: all 0.3s;
+    font-family: "Gabarito", system-ui, -apple-system, Segoe UI, sans-serif;
+    
+  }
+
+  .input-field:focus { border-color: var(--card); }
+
+  .input-label {
+    position: absolute;
+    top: 50%;
+    left: 1.2rem;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+    
+    transition: all 0.3s;
+  }
+
+  .input-field:focus ~ .input-label,
+  .input-field:valid ~ .input-label {
+    top: -0.1rem;
+    left: 1rem;
+    font-size: 0.7rem;
+    background: white;
+    padding: 0 0.3rem;
+    color: var(--card);
+  }
+  /*  */
+  h4{
+    color: var(--muted);
+    font-weight: normal;
+  }
+  /*  */
+  .boton-activar{
+    width: 100%;
+    padding: 0.6rem 0.5rem 0.6rem 0.5rem;
+    background-color: var(--card);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .boton-activar:hover{
+    background-color: var(--hover);
+  }
+  .row{
+    margin-top:1rem;
+  }
+  .row button{
+    background-color: transparent;
+    color: var(--card);
+    border: none;
+    cursor: pointer;
+  }
+
+  .row button:hover{
+    text-decoration: underline;
+  }
+    

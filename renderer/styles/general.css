@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Gabarito";
+    src: url("../assets/fonts/Gabarito-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900; /* rango variable */
+    font-style: normal;
+    font-display: swap;
+  }
+
+  
+  :root { --bg:#ffffff; --card:#24305a; --muted:rgb(95, 109, 141); --txt:#1d232f; --hover:#24305af8; --ok:#18a34a; --bad:#dc2626; --accent:#3b82f6; }
+
+  button{
+    font-family: "Gabarito", system-ui, -apple-system, Segoe UI, sans-serif;
+  }

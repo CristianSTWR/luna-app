@@ -1,6 +1,10 @@
 {
   "name": "mi-app",
-  "version": "1.0.1",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CristianSTWR/luna-app.git"
+  },
   "description": "Aplicación de escritorio creada con Electron y Vite",
   "author": "Cristian",
   "main": "src/main.js",

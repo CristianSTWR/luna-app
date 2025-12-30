@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./styles/loader.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <title>Cargando...</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <!--  -->
+  <div class="titlebar-right">
+
+    <button class="tb-btn loader_close" id="loader_close">✕</button>
+    
+  </div>
+  <!--  -->
+  <div id="loading" class="loading-breathe">
+    <img src="./assets/logo_luna.png" alt="Logo LUNA" class="logo-breathe">
+  </div>
+  <div style="margin-top: 5rem;">
+    <div id="status" style="font-size: 1.2rem;">Conectando…</div>
+  <div class="muted" id="details"></div>
+  <button id="retry" class="btn-luna" style="display:block;">Reintentar</button>
+  </div>
+
+  <script>
+    console.log("window.boot =", window.boot);
+
+    const statusEl = document.getElementById("status");
+    const detailsEl = document.getElementById("details");
+    const retryBtn = document.getElementById("retry");
+
+    async function runBoot() {
+      retryBtn.style.display = "none"; 
+      statusEl.textContent = "Iniciando…"; 
+      detailsEl.textContent = "";
+      try {
+        const res = await window.boot.run();
+        console.log("boot.run() =>", res);
+
+        if (res?.ok) {
+          statusEl.textContent = "Entrando…";
+          setTimeout(() => window.boot.enterMain(), 400);  
+          return;
+        }
+
+        if (res?.step === "PING") {
+          statusEl.textContent = "No se pudo conectar al servidor"
+          detailsEl.textContent = res?.msg || "";
+          retryBtn.style.display = "inline-block";
+          return;
+        }
+
+        statusEl.textContent = "Necesitas activar la licencia"; 
+        
+        setTimeout(() => window.boot.enterLicense(), 1000);  
+      } catch (e) {
+        console.log("runBoot error:", e);
+        statusEl.textContent = "Error inesperado"; 
+        detailsEl.textContent = (e && e.message) ? e.message : "";
+        retryBtn.style.display = "inline-block";
+      }
+    }
+
+    retryBtn.addEventListener("click", runBoot);
+    runBoot();
+
+    document.getElementById("loader_close").addEventListener("click", () => {
+    window.loader.close();
+  });
+
+  </script>
+</body>
+</html>

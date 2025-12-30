@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./styles/licence.css">
+  <link rel="stylesheet" href="./styles/general.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Activar licencia</title>
+</head>
+<body>
+ 
+  <div class="card">
+    <div style="display: flex; padding-top: 2.2rem; align-items: center; justify-content: center;">
+      <img  src="./assets/logo_luna_letra.png" width="100" height="auto" alt="logo">
+    </div>
+    <div style="width: 85%; margin: 1rem auto;">
+      <h1>Activar tu licencia</h1>
+    <h4 style="padding: 0; margin: 0;">Introduce tu clave para desbloquear todas las funciones de LUNA</h4>
+    <!-- <input id="key" class="mono" placeholder="LUNA-AAAA-BBBB-CCCC" autocomplete="off" /> -->
+    <div class="input" style="margin-top: 1rem;">
+      <input class="mono input-field" id="key" type="text" autocomplete="off" name="nombre" required />
+      <label class="input-label">LUNA-XXXX-XXXX-XXXX</label>
+    </div>
+    <div class="msg" id="msg" style="margin-top: 0.3rem; display: none;">
+      <div class="dot" id="dot"></div>
+      <div id="msgText">Escribe tu clave y presiona “Activar”.</div>
+    </div>
+    <button class="boton-activar" id="btnActivate">Activar ahora</button>
+
+    
+    <div class="row">
+      <button id="btnClose" class="ghost">Activar más tarde</button>
+      <span>·</span>
+      <button>Comprar una licencia</button>
+    </div>
+
+  
+    </div>
+  </div>
+  <script src="./javascript/license.js"></script>
+  <script src="./javascript/layout.js"></script>
+</body>
+</html>
+
+
+<!-- 
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Activar licencia</title>
+  <style>
+    :root { --bg:#0b0f14; --card:#121826; --muted:#9aa4b2; --txt:#e6edf3; --ok:#18a34a; --bad:#dc2626; --accent:#3b82f6; }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background: radial-gradient(1000px 600px at 20% 10%, rgba(59,130,246,.25), transparent 55%),
+                  radial-gradient(900px 500px at 90% 80%, rgba(24,163,74,.18), transparent 60%),
+                  var(--bg);
+      color:var(--txt);
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      padding:18px;
+    }
+    .card{
+      width:min(520px, 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      padding:18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      backdrop-filter: blur(10px);
+    }
+    .top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:12px;
+      background: rgba(59,130,246,.18);
+      border:1px solid rgba(59,130,246,.35);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; color: #bcd7ff;
+    }
+    h1{ margin:0; font-size:18px; }
+    .sub{ margin:2px 0 0; color:var(--muted); font-size:13px; }
+    label{ display:block; margin:14px 0 6px; color:var(--muted); font-size:13px; }
+    input{
+      width:100%; padding:12px 12px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      color:var(--txt);
+      outline:none;
+      font-size:14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    input:focus{ border-color: rgba(59,130,246,.55); box-shadow: 0 0 0 3px rgba(59,130,246,.18); }
+    .row{ display:flex; gap:10px; margin-top:12px; }
+    button{
+      flex:1;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(59,130,246,.18);
+      color:var(--txt);
+      font-weight:700;
+      cursor:pointer;
+    }
+    button:hover{ background: rgba(59,130,246,.28); }
+    button:disabled{ opacity:.55; cursor:not-allowed; }
+    .ghost{
+      flex:0 0 auto;
+      background: rgba(255,255,255,.06);
+    }
+    .msg{
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      font-size:13px;
+      color: var(--muted);
+      min-height: 38px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .dot{ width:10px; height:10px; border-radius:999px; background:#8892a0; }
+    .dot.ok{ background: var(--ok); }
+    .dot.bad{ background: var(--bad); }
+    .hint{ margin-top:10px; color: var(--muted); font-size:12px; line-height:1.4; }
+    .mono{ font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="logo">L</div>
+      <div>
+        <h1>Activar licencia</h1>
+        <div class="sub">Conecta tu instalación al servidor y habilita LUNA en este equipo.</div>
+      </div>
+    </div>
+
+    <label for="key">Clave de licencia</label>
+    <input id="key" class="mono" placeholder="LUNA-AAAA-BBBB-CCCC" autocomplete="off" />
+
+    <div class="row">
+      <button id="btnActivate">Activar</button>
+      <button id="btnClose" class="ghost">Cerrar</button>
+    </div>
+
+    <div class="msg" id="msg">
+      <div class="dot" id="dot"></div>
+      <div id="msgText">Escribe tu clave y presiona “Activar”.</div>
+    </div>
+
+    <div class="hint">
+      Tip: pega la licencia sin espacios. Ejemplo: <span class="mono">LUNA-AAAA-BBBB-CCCC</span>
+    </div>
+  </div>
+
+  <script>
+    const keyEl = document.getElementById("key");
+    const btnActivate = document.getElementById("btnActivate");
+    const btnClose = document.getElementById("btnClose");
+    const msgText = document.getElementById("msgText");
+    const dot = document.getElementById("dot");
+
+    function setState(type, text) {
+      dot.className = "dot" + (type ? " " + type : "");
+      msgText.textContent = text;
+    }
+
+    function normalizeKey(v) {
+      return (v || "")
+        .toUpperCase()
+        .replace(/\s+/g, "")
+        .trim();
+    }
+
+    async function activate() {
+      const licenseKey = normalizeKey(keyEl.value);
+      keyEl.value = licenseKey;
+
+      if (!licenseKey || licenseKey.length < 10) {
+        setState("bad", "Clave inválida. Revisa y vuelve a intentar.");
+        return;
+      }
+
+      btnActivate.disabled = true;
+      setState("", "Activando…");
+
+      try {
+        const res = await window.license.activate(licenseKey);
+        if (res?.ok) {
+          setState("ok", "Licencia activada. Entrando a la aplicación…");
+          setTimeout(() => window.license.finishSuccess(), 500);
+        } else {
+          setState("bad", res?.msg || "No se pudo activar la licencia.");
+        }
+      } catch (e) {
+        setState("bad", "Error inesperado al activar.");
+      } finally {
+        btnActivate.disabled = false;
+      }
+    }
+
+    btnActivate.addEventListener("click", activate);
+    btnClose.addEventListener("click", () => window.license.close());
+    keyEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") activate();
+    });
+
+    ipcMain.on("license:success", () => {
+  console.log("[LICENSE] success -> abrir main");
+  try { if (licenseWin) licenseWin.close(); } catch {}
+  licenseWin = null;
+
+  if (!mainWin) createMainWindow();
+});
+
+ipcMain.on("license:close", () => {
+  console.log("[LICENSE] close");
+  try { if (licenseWin) licenseWin.close(); } catch {}
+  licenseWin = null;
+});
+  </script>
+</body>
+</html>
+
+
+-->
